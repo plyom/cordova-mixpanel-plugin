@@ -59,7 +59,10 @@
             </receiver>
         </config-file>
 
-        <framework src="src/android/dependencies.gradle" type="gradleReference" custom="true"/>
+        <framework src="com.android.support:appcompat-v7:21+" />
+        <framework src="com.google.android.gms:play-services:+" />
+        <framework src="com.google.android.gms:play-services-gcm:+" />
+        <framework src="com.google.android.gms:play-services-base:+" />
     </platform>
 
 
