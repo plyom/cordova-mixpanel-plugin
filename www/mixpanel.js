@@ -35,10 +35,8 @@ mixpanel.track = function(eventName, eventProperties, onSuccess, onFail) {
 
 
 // PEOPLE API
-
-
-mixpanel.people.identify = function(distinctId, onSuccess, onFail) {
-  exec(onSuccess, onFail, 'Mixpanel', 'people_identify', [distinctId]);
+mixpanel.people.identify = function(distinctId, pushToken, onSuccess, onFail) {
+  exec(onSuccess, onFail, 'Mixpanel', 'people_identify', [distinctId, pushToken]);
 };
 
 mixpanel.people.set = function(peopleProperties, onSuccess, onFail) {

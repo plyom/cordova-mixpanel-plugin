@@ -196,11 +196,14 @@ public class MixpanelPlugin extends CordovaPlugin {
 
     private boolean handlePeopleIdentify(JSONArray args, final CallbackContext cbCtx) {
         String distinctId = args.optString(0, "");
+        String senderId = args.optString(1, "");
         if (TextUtils.isEmpty(distinctId)) {
             this.error(cbCtx, "missing distinct id");
             return false;
         }
-        mixpanel.getPeople().identify(distinctId);
+        MixpanelAPI.People people = mixpanel.getPeople();
+        people.identify(distinctId);
+        people.initPushHandling(senderId);
         cbCtx.success();
         return true;
     }
